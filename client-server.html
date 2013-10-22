@@ -1,0 +1,72 @@
+---
+layout: default
+title: Api Docs
+---
+<div class="page-header">
+    <h1 id="overview">Client Server Requests</h1>
+</div>
+<div class="col-md-3">
+    <div class="bs-sidebar hidden-print affix" role="complementary">
+        <ul class="nav bs-sidenav">
+            <li><a href="#int">Introduction</a></li>
+            <li><a href="#start">Getting Start</a></li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-9">
+    <p class="lead">
+
+    </p>
+
+    <h3 id="int" class="sub-title">Introduction</h3>
+
+    <p>In order to show a video player inside a web page you need to call our js library (DigitalBees SDK) from
+        your web page (client), so this is client-server request to the digitalbees api system.</p>
+
+    <p>When invoked, the SDK application read at bootstrap the first element of "_sqrapiq" array that must be
+        set to "init", as showed below:</p>
+
+    <div class="well">_srapiq.push(['init', apiKEY, callback]);</div>
+    <p>This method initializes the sdk reading the user configuration on the dibitalbees platform (server- side),
+        this means that the apiKEY value must correspond to an existing USER on digitalbees.</p>
+
+    <p></p>The 'init' method replaces the array "_sqrapiq" with an object "ExternalInterface" that exposes the public
+    methods of the SDK that you can invoke using the "push" method example:</p>
+    <div class="well">_srapiq.push ( [ 'setOption' , 'autoStart' , true] ) ;</div>
+    <p></p>Alternatively, you can directly retrieve the object ExternalInterface to invoke methods in the traditional
+    way.
+    Example:</p>
+    <div class="well">_srapiq.getApi ().searchVideo ('O Vient', 1, function(data){console.log(data)});</div>
+
+    <h3 id="start" class="sub-title">Getting Start</h3>
+
+    <p>Below you can find the digitalbees client-side code example to include in your webpage:</p>
+
+    {% highlight js %}￼
+    <script type="text/javascript">
+        var _srapiq = _srapiq || [];
+        _srapiq.push(['init', apiKEY, < your_callback_method >]) ;
+        //Required
+        _srapiq.push(['setOption', 'width', 600]);
+        // Optional _srapiq.push(['setOption', 'height', 400]);
+        // Optional _srapiq.push(['setOption', 'autoStart', true]);
+        // Optional _srapiq.push(['setOption', 'advUrl', advURL]);
+        // Optional _srapiq.push(['embedVideo', 'videoContainer', '1']);
+        // Required
+        (function () {
+            var sr = document.createElement('script');
+            sr.type = 'text/javascript';
+            sr.async = true;
+            sr.src = '//sdk.digitalbees.com/latest.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(sr, s);
+        })();
+    </script>
+    {% endhighlight %}
+    <p>the example above contains comments showing id the method is optional or mandatory.
+        Methods implemented :</p>
+
+    <div class="well">_srapiq.push ( [ ' init ' , apiKEY , < your_callback_method > ] ) ;</div>
+    <p>This method retrieve the user parameters and initializes the sdk . Optionally you can set your callback,
+        that will be called when the environment will be ready .</p>
+</div>

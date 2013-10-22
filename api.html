@@ -1,0 +1,300 @@
+---
+layout: default
+title: Api Docs
+---
+<div class="page-header">
+    <h1 id="overview">Docs</h1>
+</div>
+<div class="col-md-3">
+    <div class="bs-sidebar hidden-print affix" role="complementary">
+        <ul class="nav bs-sidenav">
+            <li><a href="#int">Introduction</a></li>
+            <li><a href="#platform">Domain and platforms</a></li>
+            <li><a href="#auth">Authentication</a></li>
+            <li><a href="#list">List</a>
+                <ul>
+                    <li>list/video</li>
+                    <li>list/author</li>
+                </ul>
+            </li>
+            <li><a href="#match">Metch</a>
+                <ul>
+                    <li>get/video</li>
+                    <li>get/author</li>
+                </ul>
+            </li>
+            <li><a href="#view">View</a>
+                <ul>
+                    <li>Video by Author</li>
+                    <li>Video by Date</li>
+                </ul>
+            </li>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#pagination">Pagination</a></li>
+            <li><a href="#errors">Errors</a></li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-9">
+    <p class="lead">
+
+    </p>
+    <h3 id="int" class="sub-title">Introduction</h3>
+    Digital Bees API (DBAPI from now on) is a restricted REST service developed to serve Digital Bees (DB from now on)
+    artists and video information to its partners.
+    The service is based on server side connection between partners server and SRAPI servers and between clients
+    and DBAPI servers.
+
+    <h3 id="platform" class="sub-title">Domains and platforms</h3>
+    <p>In order to guarantee the best service to all our customers, we offers 2 separate environments for our API: Stage and Production.
+    Digital Bees provide to every customer stage and production credentials. The credentials of stage and production are different.</p>
+    <p>Customers can use the staging environment for testing, while they may use the production environment for their own production environment.</p>
+    <p>Stage and Production Digital Bees API environments have different domains, so both calls server- server and client-server must respect these domains.</p>
+    Stage api Production : <a href="http://stage.api.digitalbees.it" target="_blank">http://stage.api.digitalbees.it</a></br>
+    Api Production : <a href="http://api.digitalbees.it" target="_blank">http://api.digitalbees.it</a></br>
+
+    <h3 id="auth" class="sub-title">Authenticate</h3>
+    <p>In order to access this service any partner need to own an authentication pair (“apykey”, “apisecret”), those keys will be manually provided you by DigitalBees.
+    Those parameters have to be appended on every request as query string:</p>
+
+    <div class="well">&apikey=<span class="text-success">< value ></span>&apisecret=<span class="text-success">< value ></span></div>
+
+    <h3 id="list" class="sub-title">List</h3>
+    <p>Response to an index request is an array listing the matching objects.</p>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>List of <b>Author</b></td>
+            <td>http://api.digitalbees.it/list/author</td>
+            <td>
+                <span type="button" class="btn btn-success btn-no-padding">200</span>
+                <span type="button" class="btn btn-warning btn-no-padding">403</span>
+                <span type="button" class="btn btn-warning btn-no-padding">404</span>
+                <span type="button" class="btn btn-danger btn-no-padding">500</span>
+                <span type="button" class="btn btn-danger btn-no-padding">502</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                /list/author?page=<span class="text-success">1</span>&perPage=<span class="text-success">100</span>&sortProperty=<span class="text-success">creationDate</span>&sortDirection=<span class="text-success">DESC</span>&apikey=<span class="text-success">< value ></span>& apisecret=<span class="text-success">< value ></span>
+            </td>
+        </tr>
+        <tr>
+            <td>List of <b>Video</b></td>
+            <td>http://api.digitalbees.it/list/author</td>
+            <td>
+                <span type="button" class="btn btn-success btn-no-padding">200</span>
+                <span type="button" class="btn btn-warning btn-no-padding">403</span>
+                <span type="button" class="btn btn-warning btn-no-padding">404</span>
+                <span type="button" class="btn btn-danger btn-no-padding">500</span>
+                <span type="button" class="btn btn-danger btn-no-padding">502</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                /list/video?page=<span class="text-success">1</span>&perPage=<span class="text-success">100</span>&sortProperty=<span class="text-success">creationDate</span>&sortDirection=<span class="text-success">DESC</span>&apikey=<span class="text-success">< value ></span>& apisecret=<span class="text-success">< value ></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    This requests is pageable, <a href="#pagination">go to pagionation paragraph</a>
+
+    <h3 id="match" class="sub-title">Match</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>Match <b>Video by id</b></td>
+            <td>http://api.digitalbees.it/get/video/<span class="text-success">ID</span></td>
+            <td>
+                <span type="button" class="btn btn-success btn-no-padding">200</span>
+                <span type="button" class="btn btn-warning btn-no-padding">403</span>
+                <span type="button" class="btn btn-warning btn-no-padding">404</span>
+                <span type="button" class="btn btn-danger btn-no-padding">500</span>
+                <span type="button" class="btn btn-danger btn-no-padding">502</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                /get/video/<span class="text-success">1</span>?apikey=<span class="text-success">< value ></span>& apisecret=<span class="text-success">< value ></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Match <b>Author by id</b></td>
+            <td>http://api.digitalbees.it/get/author/<span class="text-success">ID</span></td>
+            <td>
+                <span type="button" class="btn btn-success btn-no-padding">200</span>
+                <span type="button" class="btn btn-warning btn-no-padding">403</span>
+                <span type="button" class="btn btn-warning btn-no-padding">404</span>
+                <span type="button" class="btn btn-danger btn-no-padding">500</span>
+                <span type="button" class="btn btn-danger btn-no-padding">502</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                /get/author/<span class="text-success">1</span>?apikey=<span class="text-success">< value ></span>& apisecret=<span class="text-success">< value ></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3 id="view" class="sub-title">View</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>Match <b>Video from date</b></td>
+            <td>http://api.digitalbees.it/view/video-from-date?from=<span class="text-success">53463453</span>&to=<span class="text-success">90045432523</span></td>
+            <td>
+                <span type="button" class="btn btn-success btn-no-padding">200</span>
+                <span type="button" class="btn btn-warning btn-no-padding">403</span>
+                <span type="button" class="btn btn-warning btn-no-padding">404</span>
+                <span type="button" class="btn btn-danger btn-no-padding">500</span>
+                <span type="button" class="btn btn-danger btn-no-padding">502</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                /view/video-by-date?from=<span class="text-success">< timecode ></span>&to<span class="text-success">< timecode ></span>&apikey=<span class="text-success">< value ></span>&apisecret=<span class="text-success">< value ></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Match <b>Video by Author</b></td>
+            <td>http://api.digitalbees.it/view/video-by-author?id=<span class="text-success">[int]</span></td>
+            <td>
+                <span type="button" class="btn btn-success btn-no-padding">200</span>
+                <span type="button" class="btn btn-warning btn-no-padding">403</span>
+                <span type="button" class="btn btn-warning btn-no-padding">404</span>
+                <span type="button" class="btn btn-danger btn-no-padding">500</span>
+                <span type="button" class="btn btn-danger btn-no-padding">502</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                /view/video-by-author?id=<span class="text-success">1567</span>&apikey=<span class="text-success">< value ></span>&apisecret=<span class="text-success">< value ></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    This requests is pageable, <a href="#pagination">go to pagionation paragraph</a>
+
+    <h3 id="search" class="sub-title">Search</h3>
+    <p>Response to an index request is an array listing the matching objects.</p>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>Search <b>Videos</b></td>
+            <td>http://api.digitalbees.it/search/video</td>
+            <td>
+                <span type="button" class="btn btn-success btn-no-padding">200</span>
+                <span type="button" class="btn btn-warning btn-no-padding">403</span>
+                <span type="button" class="btn btn-warning btn-no-padding">404</span>
+                <span type="button" class="btn btn-danger btn-no-padding">500</span>
+                <span type="button" class="btn btn-danger btn-no-padding">502</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                /search/video?q=<span class="text-success">@name%20call%me%maybe</span>&apikey=<span class="text-success">< value ></span>&apisecret=<span class="text-success">< value ></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Search <b>Authors</b></td>
+            <td>http://api.digitalbees.it/search/author</td>
+            <td>
+                <span type="button" class="btn btn-success btn-no-padding">200</span>
+                <span type="button" class="btn btn-warning btn-no-padding">403</span>
+                <span type="button" class="btn btn-warning btn-no-padding">404</span>
+                <span type="button" class="btn btn-danger btn-no-padding">500</span>
+                <span type="button" class="btn btn-danger btn-no-padding">502</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                /search/author?q=<span class="text-success">@name%20carl%20rae%20jepsen</span>&apikey=<span class="text-success">< value ></span>&apisecret=<span class="text-success">< value ></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    This requests is pageable, <a href="#pagination">go to pagionation paragraph</a>
+
+    <h3 id="pagination" class="sub-title">Pagination</h3>
+
+    {% highlight json %}
+    {
+    "data":[
+    ...
+    ],
+    "total":42962,
+    "page":1,
+    "pages":430,
+    "perPage":100,
+    "sortProperty":"id",
+    "sortDirection":"DESC"
+    }
+    {% endhighlight %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Param</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>perPage</td>
+            <td>integer</td>
+            <td>perPage is the number of items 100 returned. Default and max value is 100</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>page</td>
+            <td>integer</td>
+            <td>is the page number. The first page is 1.</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>sortProperty</td>
+            <td>integer</td>
+            <td>sortProperty accept a fields as property for sorting.</td>
+            <td>id</td>
+        </tr>
+        <tr>
+            <td>sortDirection</td>
+            <td>enum</td>
+            <td>use sortDirection to obtain ascending (ASC) or descending
+                (DSC) order.</td>
+            <td>DESC</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3 id="errors" class="sub-title">Errors</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>400</td>
+            <td>Bad Request</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>Forbidden</td>
+        </tr>
+        <tr>
+            <td>404</td>
+            <td>Not Found</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>Internal Server Error</td>
+        </tr>
+        <tr>
+            <td>502</td>
+            <td>Bad Gateway</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
