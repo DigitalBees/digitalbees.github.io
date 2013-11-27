@@ -10,6 +10,7 @@ title: Api Docs
         <ul class="nav bs-sidenav">
             <li><a href="#int">Introduction</a></li>
             <li><a href="#start">Getting Start</a></li>
+            <li><a href="#list-methods">Public Methods</a></li>
         </ul>
     </div>
 </div>
@@ -33,7 +34,7 @@ title: Api Docs
     <p></p>The 'init' method replaces the array "_sqrapiq" with an object "ExternalInterface" that exposes the public
     methods of the SDK that you can invoke using the "push" method example:</p>
     <div class="well">_srapiq.push ( [ 'setOption' , 'autoStart' , true] ) ;</div>
-    <p></p>Alternatively, you can directly retrieve the object ExternalInterface to invoke methods in the traditional
+    <p>Alternatively, you can directly retrieve the object ExternalInterface to invoke methods in the traditional
     way.
     Example:</p>
     <div class="well">_srapiq.getApi ().searchVideo ('O Vient', 1, function(data){console.log(data)});</div>
@@ -63,10 +64,241 @@ title: Api Docs
         })();
     </script>
     {% endhighlight %}
-    <p>the example above contains comments showing id the method is optional or mandatory.
-        Methods implemented :</p>
 
-    <div class="well">_srapiq.push ( [ ' init ' , apiKEY , < your_callback_method > ] ) ;</div>
-    <p>This method retrieve the user parameters and initializes the sdk . Optionally you can set your callback,
-        that will be called when the environment will be ready .</p>
+    <h3 id="list-methods" class="sub-title">Public methods</h3>
+    <div class="method-box" data-method="init">
+        <div class="row title-of-method">init(apiKey, callback)</div>
+        <div class="row description-of-method">
+            Initialize SDK
+        </div>
+        <div class="row signature-description">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ApiKey</td>
+                        <td>Your apikey</td>
+                    </tr>
+                    <tr>
+                        <td>yourCallback</td>
+                        <td>you can specify your callback function to have a notification when the the player template is ready</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="method-box" data-method="setOption">
+        <div class="row title-of-method">getApi().setOption(optKey, optValue)</div>
+        <div class="row description-of-method">
+            use this method to set the player options as height, width, autostart, advUrl
+        </div>
+        <div class="row signature-description">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>OptKey</td>
+                    <td>In this value you can set one of this param <b>height</b> for manage height(int) of player, <b>width</b>(int) for manage width of it.
+                    <b>AutoStart</b>(boolean) and <b>advUrl</b>(string)</td>
+                </tr>
+                <tr>
+                    <td>optValue</td>
+                    <td>Is value for optKey</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="method-box" data-method="getVideoDuration">
+        <div class="row title-of-method">getApi().getVideoDuration()</div>
+        <div class="row description-of-method">
+            Return the video duration of the last video player embedded in web page
+        </div>
+    </div>
+
+    <div class="method-box" data-method="embedVideo">
+        <div class="row title-of-method">getApi().embedVideo(parentElement, videoAssetId)</div>
+        <div class="row description-of-method">
+            enables the Video Player in web page. If your SRAPI account is enabled from Digital Bees staff to manage Video,
+            you must use this method to enableVideos in your web page
+        </div>
+        <div class="row signature-description">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>parentElement</td>
+                    <td>It is the id or the instance of the dom element where you want append the video player</td>
+                </tr>
+                <tr>
+                    <td>videoAssetId</td>
+                    <td>A valid video id</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="method-box" data-method="loadVideoid">
+        <div class="row title-of-method">getApi().loadVideoid(videoAssetId, yourCallback)</div>
+        <div class="row description-of-method">
+            Use this method to change the video asset inside the last player embedded in web page
+        </div>
+        <div class="row signature-description">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>videoAssetId</td>
+                    <td>Set the width for the video player in your web page</td>
+                </tr>
+                <tr>
+                    <td>yourCallback</td>
+                    <td>You can specify your callback function to have a notification when the the player template is ready</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="method-box" data-method="playVideo">
+        <div class="row title-of-method">getApi().playVideo()</div>
+        <div class="row description-of-method">
+            Use this method to set play the last player embedded in web page
+        </div>
+    </div>
+
+    <div class="method-box" data-method="stopVideo">
+        <div class="row title-of-method">getApi().stopVideo()</div>
+        <div class="row description-of-method">
+            Use this method to set stop the last player embedded in web page
+        </div>
+    </div>
+
+    <div class="method-box" data-method="pauseVideo">
+        <div class="row title-of-method">getApi().pauseVideo()</div>
+        <div class="row description-of-method">
+            Use this method to set pause the last player embedded in web page
+        </div>
+    </div>
+
+    <div class="method-box" data-method="searchVideo">
+        <div class="row title-of-method">getApi().searchVideo(searchTxt, limit, yourCallback)</div>
+        <div class="row description-of-method">
+            Use this method to change the video asset inside the last player embedded in web page
+        </div>
+        <div class="row signature-description">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>searchTxt</td>
+                    <td>The text string that you want search (author name, video title or metatag)</td>
+                </tr>
+                <tr>
+                    <td>limit</td>
+                    <td>the max number of results you want obtain as response</td>
+                </tr>
+                <tr>
+                    <td>yourCallback</td>
+                    <td>Because the search is asynchronus, you can specify your callback function to have a notification when the the search results are ready</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="method-box" data-method="getCurrentPlayer">
+        <div class="row title-of-method"><span class="new">New</span> getApi().getCurrentPlayer()</div>
+        <div class="row description-of-method">
+            Return an object to identify the current player. This function is powerfull if you use several video players in the same web page.
+            eg:{id: "7", videoName: "Martina McBride -Ride", container: "videoContainer3"}
+        </div>
+    </div>
+
+    <div class="method-box" data-method="getEmbeddedPlayers">
+        <div class="row title-of-method">
+            <span class="new">New</span> getApi().getEmbeddedPlayers()
+        </div>
+        <div class="row description-of-method">
+            Return an array object with the list of all players embedded (objects) in the web page. This function is powerfull
+            if you use several video players in the same web page.
+        </div>
+    </div>
+
+    <div class="method-box" data-method="setCurrentPlayerByVideoId">
+        <div class="row title-of-method">
+            <span class="new">New</span> getApi().setCurrentPlayerByVideoId(videoAssetId)
+        </div>
+        <div class="row description-of-method">
+            Use this method to set or change a video player as current player, by calling it with the videoAssetId.
+        </div>
+        <div class="row signature-description">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>videoAssetId</td>
+                        <td>the videoAssetId is an integer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="method-box" data-method="setCurrentPlayerByContainerId">
+        <div class="row title-of-method">
+            <span class="new">New</span> getApi().setCurrentPlayerByContainerId(div_ContainerId)
+        </div>
+        <div class="row description-of-method">
+            use this method to set or change a video player as current player, by calling it with the id of the div container.
+        </div>
+        <div class="row signature-description">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>div_ContainerId</td>
+                        <td>id of the div container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
