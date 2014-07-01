@@ -14,18 +14,18 @@ title: Api Docs
             <li><a href="#list">List</a>
                 <ul>
                     <li>list/video</li>
-                    <li>list/author</li>
+                    <!-- <li>list/author</li> -->
                 </ul>
             </li>
             <li><a href="#match">Metch</a>
                 <ul>
                     <li>get/video</li>
-                    <li>get/author</li>
+                    <!-- <li>get/author</li> -->
                 </ul>
             </li>
             <li><a href="#view">View</a>
                 <ul>
-                    <li>Video by Author</li>
+                    <!-- <li>Video by Author</li> -->
                     <li>Video by Date</li>
                 </ul>
             </li>
@@ -58,7 +58,7 @@ title: Api Docs
     <p>Response to an index request is an array listing the matching objects.</p>
     <table class="table">
         <tbody>
-        <tr>
+        <!-- <tr>
             <td>List of <b>Author</b></td>
             <td>http://api.digitalbees.it/list/author</td>
             <td>
@@ -73,7 +73,7 @@ title: Api Docs
             <td colspan="3">
                 /list/author?page=<span class="text-success">1</span>&perPage=<span class="text-success">100</span>&sortProperty=<span class="text-success">creationDate</span>&sortDirection=<span class="text-success">DESC</span>&apikey=<span class="text-success">< value ></span>& apisecret=<span class="text-success">< value ></span>
             </td>
-        </tr>
+        </tr> -->
         <tr>
             <td>List of <b>Video</b></td>
             <td>http://api.digitalbees.it/list/author</td>
@@ -113,7 +113,7 @@ title: Api Docs
                 /get/video/<span class="text-success">1</span>?apikey=<span class="text-success">< value ></span>& apisecret=<span class="text-success">< value ></span>
             </td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>Match <b>Author by id</b></td>
             <td>http://api.digitalbees.it/get/author/<span class="text-success">ID</span></td>
             <td>
@@ -128,7 +128,7 @@ title: Api Docs
             <td colspan="3">
                 /get/author/<span class="text-success">1</span>?apikey=<span class="text-success">< value ></span>& apisecret=<span class="text-success">< value ></span>
             </td>
-        </tr>
+        </tr> -->
         </tbody>
     </table>
 
@@ -151,7 +151,7 @@ title: Api Docs
                 /view/video-by-date?from=<span class="text-success">< timecode ></span>&to<span class="text-success">< timecode ></span>&apikey=<span class="text-success">< value ></span>&apisecret=<span class="text-success">< value ></span>
             </td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>Match <b>Video by Author</b></td>
             <td>http://api.digitalbees.it/view/video-by-author?id=<span class="text-success">[int]</span></td>
             <td>
@@ -166,7 +166,7 @@ title: Api Docs
             <td colspan="3">
                 /view/video-by-author?id=<span class="text-success">1567</span>&apikey=<span class="text-success">< value ></span>&apisecret=<span class="text-success">< value ></span>
             </td>
-        </tr>
+        </tr> -->
         <tr>
             <td>Match <b>Most Popular Video from Digitalbees</b></td>
             <td>http://api.digitalbees.it/view/most-popular-digitalbees</td>
@@ -208,7 +208,7 @@ title: Api Docs
                 /search/video?q=<span class="text-success">@name%20call%me%maybe</span>&apikey=<span class="text-success">< value ></span>&apisecret=<span class="text-success">< value ></span>
             </td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>Search <b>Authors</b></td>
             <td>http://api.digitalbees.it/search/author</td>
             <td>
@@ -223,7 +223,7 @@ title: Api Docs
             <td colspan="3">
                 /search/author?q=<span class="text-success">@name%20carl%20rae%20jepsen</span>&apikey=<span class="text-success">< value ></span>&apisecret=<span class="text-success">< value ></span>
             </td>
-        </tr>
+        </tr> -->
         </tbody>
     </table>
 
